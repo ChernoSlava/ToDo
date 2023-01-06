@@ -1,0 +1,9 @@
+.Button {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.Button_disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
