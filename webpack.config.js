@@ -41,7 +41,7 @@ module.exports = {
         ],
         alias: {
             '@components': [path.resolve(__dirname,'./src/components')],
-            '@context': [path.resolve(__dirname,'./src/context')],
+            '@contexts': [path.resolve(__dirname,'./src/contexts')],
         }
     },
     devServer: {
