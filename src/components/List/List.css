@@ -1,0 +1,16 @@
+.List {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.Button__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ListItem_finish {
+    text-decoration: line-through;
+}

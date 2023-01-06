@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "storybook": "start-storybook -p 6007"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,11 @@
     "babel-loader": "9.1.0",
     "html-webpack-plugin": "5.5.0",
     "style-loader": "2.0.0",
-    "css-loader": "5.2.6"
+    "css-loader": "5.2.6",
+    "@storybook/react": "6.3.7",
+    "@storybook/builder-webpack5": "6.3.7",
+    "@storybook/manager-webpack5": "6.3.7",
+    "@storybook/addon-actions": "6.3.7",
+    "@storybook/addon-essentials": "6.3.7"
   }
 }
