@@ -11,7 +11,7 @@ export const AddInput = ({ onAdd }) => {
     return (
         <div className={styles.AddInput}>
             <input type="text" onChange={(e) => setValue(e.target.value)}/>
-            <Button title='Добавить' type='add' onClick={onAdd} isDisabled={!value}></Button>
+            <Button title='Добавить' type='add' onClick={() => onAdd?.(value)} isDisabled={!value}></Button>
         </div>
     );
 }

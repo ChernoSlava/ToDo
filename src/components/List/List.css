@@ -5,10 +5,14 @@
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
+    min-width: 400px;
 }
-.Button__container {
+.list__container {
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
+    min-height: 40px;
+    align-items: center;
 }
 
 .ListItem_finish {
