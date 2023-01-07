@@ -19,6 +19,6 @@ Playground.args = {
 
 Playground.argTypes = {
     type: {
-        control: { type: 'select', options: ['add', 'remove', 'edit', 'finish'] },
+        control: { type: 'select', options: ['add', 'remove', 'edit', 'finish', 'revert'] },
     },
 }

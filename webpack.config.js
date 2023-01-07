@@ -42,6 +42,7 @@ module.exports = {
         alias: {
             '@components': [path.resolve(__dirname,'./src/components')],
             '@contexts': [path.resolve(__dirname,'./src/contexts')],
+            '@containers': [path.resolve(__dirname, './src/containers')],
         }
     },
     devServer: {
