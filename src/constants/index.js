@@ -1,0 +1,1 @@
+export { actionType } from './constants';
