@@ -5,76 +5,78 @@ import styles from './App.css';
 
 import { AddInputContainer, ToDoListContainer} from '@containers';
 
-const ToDoListReducer = (state, action) => {
-    const {type, payload} = action;
+import { ToDoListReducer, InitialTodoList } from './store';
 
-    switch (type) {
-        //dispatch({type: 'EDIT', payload: { id: 1, title: 'buy cat food' }})
-        case 'EDIT': {
-            return {
-                ...state,
-                items: state.items.map(x => ({
-                  ...x, 
-                  title: x.id === payload.id ? payload.title : x.title  
-                }))
-            };
-        }
-        //dispatch({type: 'REMOVE', payload: 1 })
-        case 'REMOVE': {
-            return {
-                ...state,
-                // 1, 2, 3 => 2, 3
-                items: state.items.filter(x => x.id !== payload)
+// const ToDoListReducer = (state, action) => {
+//     const {type, payload} = action;
 
-            };
-        }
-        //dispatch({type: 'FINISH', payload: 1 })
-        case 'FINISH': {
-            return {
-                ...state,
-                items: state.items.map(x => ({
-                  ...x, 
-                  isFinish: x.id === payload ? true : x.isFinish  
-                }))
+//     switch (type) {
+//         //dispatch({type: 'EDIT', payload: { id: 1, title: 'buy cat food' }})
+//         case 'EDIT': {
+//             return {
+//                 ...state,
+//                 items: state.items.map(x => ({
+//                   ...x, 
+//                   title: x.id === payload.id ? payload.title : x.title  
+//                 }))
+//             };
+//         }
+//         //dispatch({type: 'REMOVE', payload: 1 })
+//         case 'REMOVE': {
+//             return {
+//                 ...state,
+//                 // 1, 2, 3 => 2, 3
+//                 items: state.items.filter(x => x.id !== payload)
+
+//             };
+//         }
+//         //dispatch({type: 'FINISH', payload: 1 })
+//         case 'FINISH': {
+//             return {
+//                 ...state,
+//                 items: state.items.map(x => ({
+//                   ...x, 
+//                   isFinish: x.id === payload ? true : x.isFinish  
+//                 }))
                  
-            };
-        }
-        //dispatch({type: 'REVERT', payload: 1 })
-        case 'REVERT': {
-            return {
-                ...state,
-                items: state.items.map(x => ({
-                  ...x, 
-                  isFinish: x.id === payload ? false : x.isFinish  
-                }))
+//             };
+//         }
+//         //dispatch({type: 'REVERT', payload: 1 })
+//         case 'REVERT': {
+//             return {
+//                 ...state,
+//                 items: state.items.map(x => ({
+//                   ...x, 
+//                   isFinish: x.id === payload ? false : x.isFinish  
+//                 }))
                  
-            };
-        }
-        //dispatch({type: 'ADD', payload: { title: 'buy popuga food', id: 1, isDone: false}})
-        case 'ADD': {
-            return {
-                ...state,
-                items: [
-                    {
-                        // title: payload.title...
-                        ...payload,
-                    },
-                    ...state.items
-                ]
-            };
-        }
+//             };
+//         }
+//         //dispatch({type: 'ADD', payload: { title: 'buy popuga food', id: 1, isDone: false}})
+//         case 'ADD': {
+//             return {
+//                 ...state,
+//                 items: [
+//                     {
+//                         // title: payload.title...
+//                         ...payload,
+//                     },
+//                     ...state.items
+//                 ]
+//             };
+//         }
 
-        default: {
-            return state;
-        }
-    }
-}
-const InitialTodoList = {
-    //Список дел
-    // { title: 'buy popuga food', id: 1, isDone: false}
-    items: [] 
+//         default: {
+//             return state;
+//         }
+//     }
+// }
+// const InitialTodoList = {
+//     //Список дел
+//     // { title: 'buy popuga food', id: 1, isDone: false}
+//     items: [] 
 
-}
+// }
 
 export const App = () => {
     const [state, dispatch] = useReducer(ToDoListReducer, InitialTodoList);
