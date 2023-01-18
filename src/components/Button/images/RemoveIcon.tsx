@@ -1,6 +1,6 @@
-import React from "react";
+import React, {SVGProps} from "react";
 
-export const RemoveIcon = (props) => {
+export const RemoveIcon: React.FC<SVGProps<SVGSVGElement>> = (props):JSX.Element => {
     return (
         <svg fill="#000000" 
 	        width="25px" height="25px" viewBox="0 0 72 72" enableBackground="new 0 0 72 72" {...props}>
