@@ -1,11 +1,12 @@
-import { actionType } from '@constants';
 
-export const ToDoListReducer = (state, action) => {
+import { ToDoStateType, Action, ActionType } from '@types';
+
+export const ToDoListReducer = (state: ToDoStateType, action: Action): ToDoStateType => {
     const {type, payload} = action;
 
     switch (type) {
         
-        case actionType.edit: {
+        case ActionType.edit: {
             return {
                 ...state,
                 items: state.items.map(x => ({
@@ -14,17 +15,17 @@ export const ToDoListReducer = (state, action) => {
                 }))
             };
         }
-        //dispatch({type: 'REMOVE', payload: 1 })
-        case actionType.remove: {
+
+        case ActionType.remove: {
             return {
                 ...state,
-                // 1, 2, 3 => 2, 3
+
                 items: state.items.filter(x => x.id !== payload)
 
             };
         }
-        //dispatch({type: 'FINISH', payload: 1 })
-        case actionType.finish: {
+
+        case ActionType.finish: {
             return {
                 ...state,
                 items: state.items.map(x => ({
@@ -34,8 +35,8 @@ export const ToDoListReducer = (state, action) => {
                  
             };
         }
-        //dispatch({type: 'REVERT', payload: 1 })
-        case actionType.revert: {
+
+        case ActionType.revert: {
             return {
                 ...state,
                 items: state.items.map(x => ({
@@ -45,13 +46,13 @@ export const ToDoListReducer = (state, action) => {
                  
             };
         }
-        //dispatch({type: 'ADD', payload: { title: 'buy popuga food', id: 1, isDone: false}})
-        case actionType.add: {
+
+        case ActionType.add: {
             return {
                 ...state,
                 items: [
                     {
-                        // title: payload.title...
+
                         ...payload,
                     },
                     ...state.items
@@ -65,7 +66,7 @@ export const ToDoListReducer = (state, action) => {
     }
 }
 
-export const InitialTodoList = {
+export const InitialTodoList: ToDoStateType = {
     //Список дел
     // { title: 'buy popuga food', id: 1, isDone: false}
     items: [] 

@@ -1,6 +1,6 @@
-import React from "react";
+import React, {SVGProps} from "react";
 
-export const FinishIcon = (props) => {
+export const FinishIcon: React.FC<SVGProps<SVGSVGElement>> = (props):JSX.Element => {
     return (
         <svg version="1.1"
             width="25px" height="25px" viewBox="0 0 32 32" {...props}>
