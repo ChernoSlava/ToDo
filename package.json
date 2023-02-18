@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack serve",
-    "storybook": "start-storybook -p 6007"
+    "storybook": "start-storybook -p 6007",
+    "eslint": "eslint ./src",
+    "eslint:fix": "eslint --fix ./src"
   },
   "repository": {
     "type": "git",
@@ -49,6 +51,18 @@
     "@storybook/builder-webpack5": "6.3.7",
     "@storybook/manager-webpack5": "6.3.7",
     "@storybook/addon-actions": "6.3.7",
-    "@storybook/addon-essentials": "6.3.7"
+    "@storybook/addon-essentials": "6.3.7",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "2.8.3"
   }
 }

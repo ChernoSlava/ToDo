@@ -3,9 +3,9 @@ export { store, RootState, AppDispatch } from './store';
 export {
   ToDoSliceReducer,
   InitialToDo,
-  edit, 
-  remove, 
-  finish, 
-  revert, 
-  add
+  edit,
+  remove,
+  finish,
+  revert,
+  add,
 } from './ToDoSlice';
