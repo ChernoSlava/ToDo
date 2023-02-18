@@ -1,1 +1,1 @@
-export {AddInputContainer} from './AddInputContainer';
+export { AddInputContainer } from './AddInputContainer';

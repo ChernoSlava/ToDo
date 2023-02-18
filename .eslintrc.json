@@ -1,0 +1,98 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "ignorePatterns": [
+    "node_modules",
+    "build",
+    "dist"
+  ],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "JSX": true,
+    "NODE_ENV": true,
+    "COUNTER_STEP": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "rules": {
+    "no-shadow": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-shadow": [
+      "error"
+    ],
+    "@typescript-eslint/no-unused-vars": "error",
+    "react/function-component-definition": "off",
+    "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.stories.*",
+          "**/.storybook/**/*.*"
+        ],
+        "peerDependencies": true
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreComments": true
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  }
+}
