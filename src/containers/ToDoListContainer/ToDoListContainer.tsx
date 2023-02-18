@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { List }from '@components';
-import { ToDoContext } from "@contexts";
+import type { RootState } from '@store';
 import { ActionType } from "@types";
+import { useSelector, useDispatch } from 'react-redux';
+import { finish, remove, revert, edit } from '@store';
 
 export const ToDoListContainer = () => {
-     const { state, dispatch } = useContext(ToDoContext);
+  const state = useSelector((state: RootState ) => state.items)
+  const dispatch = useDispatch()
     return (
         <List 
-        items={state.items}
+        items={state}
         onFinish={(id) => dispatch({ type: ActionType.finish, payload: id})}
         onRemove={(id) => dispatch({ type: ActionType.remove, payload: id})}
         onRevert={(id) => dispatch({ type: ActionType.revert, payload: id})}
