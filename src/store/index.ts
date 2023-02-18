@@ -1,5 +1,5 @@
 export { ToDoListReducer, InitialTodoList } from './toDoReducer';
-export { store, RootState, AppDispatch } from './store';
+export { store, RootState } from './store';
 export {
   ToDoSliceReducer,
   InitialToDo,

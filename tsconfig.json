@@ -5,22 +5,22 @@
         "allowJs": true,
         "noImplicitAny": true,
         "jsx": "react",
-        "baseUrl": "./src",
+        "baseUrl": ".",
         "paths": {
-            "@containers": ["containers"],
-            "@contexts": ["contexts"],
-            "@components": ["components"],
-            "@constants": ["constants"],
-            "@types": ["types/types"],
-            "@store": ["store"],
-            "@utils": ["utils"],
+            "@containers": ["./src/containers"],
+            "@contexts": ["./src/contexts"],
+            "@components": ["./src/components"],
+            "@constants": ["./src/constants"],
+            "@types": ["./src/types/types"],
+            "@store": ["./src/store"],
+            "@utils": ["./src/utils"],
         },
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
     },
     "include": [
-        "src/**/*.ts", 
-        "src/**/*.tsx"
+        "./src/**/*.ts", 
+        "./src/**/*.tsx"
     ],
     "exclude": [
         "node_modules",

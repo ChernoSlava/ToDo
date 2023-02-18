@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import { Provider } from 'react-redux';
+import { AddInputContainer, ToDoListContainer } from '@containers';
 import styles from './App.css';
 import { store } from './store';
-import { AddInputContainer, ToDoListContainer } from '@containers';
 
 export const App = () => {
   return (
@@ -12,5 +12,5 @@ export const App = () => {
         <ToDoListContainer />
       </div>
     </Provider>
-  )
-}
+  );
+};
