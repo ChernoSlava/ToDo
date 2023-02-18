@@ -1,9 +1,8 @@
-import React, { useReducer } from "react";
-import { ToDoContext } from "@contexts";
+import React, { useReducer } from 'react';
+import { ToDoContext } from '@contexts';
 
+import { AddInputContainer, ToDoListContainer } from '@containers';
 import styles from './App.css';
-
-import { AddInputContainer, ToDoListContainer} from '@containers';
 
 import { ToDoListReducer, InitialTodoList } from './store';
 
@@ -16,8 +15,8 @@ import { ToDoListReducer, InitialTodoList } from './store';
 //             return {
 //                 ...state,
 //                 items: state.items.map(x => ({
-//                   ...x, 
-//                   title: x.id === payload.id ? payload.title : x.title  
+//                   ...x,
+//                   title: x.id === payload.id ? payload.title : x.title
 //                 }))
 //             };
 //         }
@@ -35,10 +34,10 @@ import { ToDoListReducer, InitialTodoList } from './store';
 //             return {
 //                 ...state,
 //                 items: state.items.map(x => ({
-//                   ...x, 
-//                   isFinish: x.id === payload ? true : x.isFinish  
+//                   ...x,
+//                   isFinish: x.id === payload ? true : x.isFinish
 //                 }))
-                 
+
 //             };
 //         }
 //         //dispatch({type: 'REVERT', payload: 1 })
@@ -46,10 +45,10 @@ import { ToDoListReducer, InitialTodoList } from './store';
 //             return {
 //                 ...state,
 //                 items: state.items.map(x => ({
-//                   ...x, 
-//                   isFinish: x.id === payload ? false : x.isFinish  
+//                   ...x,
+//                   isFinish: x.id === payload ? false : x.isFinish
 //                 }))
-                 
+
 //             };
 //         }
 //         //dispatch({type: 'ADD', payload: { title: 'buy popuga food', id: 1, isDone: false}})
@@ -74,20 +73,22 @@ import { ToDoListReducer, InitialTodoList } from './store';
 // const InitialTodoList = {
 //     //Список дел
 //     // { title: 'buy popuga food', id: 1, isDone: false}
-//     items: [] 
+//     items: []
 
 // }
-
 export const App = () => {
-    const [state, dispatch] = useReducer(ToDoListReducer, InitialTodoList);
-    return(
-        <ToDoContext.Provider value={{
-            state, dispatch
-        }}>
-            <div className={styles.App}>
-                <AddInputContainer />
-                <ToDoListContainer />
-            </div>
-        </ToDoContext.Provider>
-    )
-}
+  const [state, dispatch] = useReducer(ToDoListReducer, InitialTodoList);
+  return (
+    <ToDoContext.Provider
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
+      value={{
+        state,
+        dispatch,
+      }}>
+      <div className={styles.App}>
+        <AddInputContainer />
+        <ToDoListContainer />
+      </div>
+    </ToDoContext.Provider>
+  );
+};

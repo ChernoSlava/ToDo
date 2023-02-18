@@ -1,17 +1,18 @@
-import React from "react";
+import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { AddInput } from "..";
+import { AddInput } from '..';
 
 export default {
-    title: "Example/AddInput",
-    component: AddInput,
-    argTypes: { onAdd: { action: 'clicked' }},
+  title: 'Example/AddInput',
+  component: AddInput,
+  argTypes: { onAdd: { action: 'clicked' } },
 } as ComponentMeta<typeof AddInput>;
 
-const Template: ComponentStory<typeof AddInput> = args => <AddInput {...args} />;
+const Template: ComponentStory<typeof AddInput> = args => (
+  <AddInput {...args} />
+);
 
 export const Playground = Template.bind({});
 
-Playground.args = {
-}
+Playground.args = {};
