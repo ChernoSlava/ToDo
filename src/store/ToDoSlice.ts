@@ -1,4 +1,5 @@
-import { ToDoStateType, Action, EditAction, AddAction } from '@types';
+/* eslint-disable no-param-reassign */
+import { ToDoStateType, EditAction, AddAction, IdAction } from '@types';
 import { createSlice } from '@reduxjs/toolkit';
 
 export const InitialToDo: ToDoStateType = {
@@ -10,22 +11,22 @@ export const ToDoSlice = createSlice({
   initialState: InitialToDo,
   reducers: {
     edit: (state: ToDoStateType, action: EditAction) => {
-      state.items.map(x => ({
+      state.items = state.items.map(x => ({
         ...x,
         title: x.id === action.payload.id ? action.payload.title : x.title,
       }));
     },
-    remove: (state: ToDoStateType, action: Action) => {
-      state.items.filter(x => x.id !== action.payload);
+    remove: (state: ToDoStateType, action: IdAction) => {
+      state.items = state.items.filter(x => x.id !== action.payload);
     },
-    finish: (state: ToDoStateType, action: Action) => {
-      state.items.map(x => ({
+    finish: (state: ToDoStateType, action: IdAction) => {
+      state.items = state.items.map(x => ({
         ...x,
         isFinish: x.id === action.payload ? true : x.isFinish,
       }));
     },
-    revert: (state: ToDoStateType, action: Action) => {
-      state.items.map(x => ({
+    revert: (state: ToDoStateType, action: IdAction) => {
+      state.items = state.items.map(x => ({
         ...x,
         isFinish: x.id === action.payload ? false : x.isFinish,
       }));

@@ -1,4 +1,3 @@
-export { ToDoListReducer, InitialTodoList } from './toDoReducer';
 export { store, RootState } from './store';
 export {
   ToDoSliceReducer,
@@ -9,3 +8,4 @@ export {
   revert,
   add,
 } from './ToDoSlice';
+export { getToDoListContainerProps } from './selectors';
