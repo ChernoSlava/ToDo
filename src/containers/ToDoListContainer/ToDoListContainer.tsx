@@ -1,20 +1,27 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { List } from '@components';
-import { ToDoContext } from '@contexts';
-import { ActionType } from '@types';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  finish,
+  remove,
+  revert,
+  edit,
+  getToDoListContainerProps,
+} from '@store';
 
 export const ToDoListContainer = () => {
-  const { state, dispatch } = useContext(ToDoContext);
+  const { items } = useSelector(getToDoListContainerProps);
+  const dispatch = useDispatch();
   return (
     <List
-      items={state.items}
-      onFinish={id => dispatch({ type: ActionType.finish, payload: id })}
-      onRemove={id => dispatch({ type: ActionType.remove, payload: id })}
-      onRevert={id => dispatch({ type: ActionType.revert, payload: id })}
+      items={items}
+      onFinish={id => dispatch(finish(id))}
+      onRemove={id => dispatch(remove(id))}
+      onRevert={id => dispatch(revert(id))}
       onEdit={(id, title) => {
         const text = prompt('Введите новое название', title);
         if (text) {
-          dispatch({ type: ActionType.edit, payload: { id, title: text } });
+          dispatch(edit({ id, title: text }));
         }
       }}
     />

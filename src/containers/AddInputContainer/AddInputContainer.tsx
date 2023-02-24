@@ -1,19 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { AddInput } from '@components';
-import { ToDoContext } from '@contexts';
 import { getUniqueId } from '@utils';
-import { ActionType } from '@types';
+import { useDispatch } from 'react-redux';
+import { add } from '@store';
 
 export const AddInputContainer = () => {
-  const { dispatch } = useContext(ToDoContext);
-
+  const dispatch = useDispatch();
   return (
     <AddInput
       onAdd={value =>
-        dispatch({
-          type: ActionType.add,
-          payload: { title: value, isFinish: false, id: getUniqueId() },
-        })
+        dispatch(add({ title: value, isFinish: false, id: getUniqueId() }))
       }
     />
   );
