@@ -36,8 +36,9 @@
     "react-redux": "8.0.5",
     "@types/redux": "3.6.0",
     "@types/react-redux": "7.1.25",
-    "@reduxjs/toolkit": "^1.9.2"
-
+    "@reduxjs/toolkit": "^1.9.2",
+    "styled-components": "5.3.6",
+    "@types/styled-components": "5.1.26"
   },
   "devDependencies": {
     "webpack": "^5.75.0",
