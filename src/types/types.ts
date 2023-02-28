@@ -12,6 +12,7 @@ export type ToDoListType = Array<ToDoItemType>;
 // Тип для глобального стора приложения (использую в reducer, InitialTodoList)
 export type ToDoStateType = {
   items: ToDoListType;
+  current: ToDoItemType;
 };
 // Описываем действия нашего приложения при вызове dispatch и при описании reducer
 export enum ActionType {
@@ -50,4 +51,8 @@ export type Action = EditAction | AddAction | IdAction;
 export type ToDoContextType = {
   dispatch: React.Dispatch<Action>;
   state: ToDoStateType;
+};
+
+export type PopupStateType = {
+  opened: Array<string>;
 };

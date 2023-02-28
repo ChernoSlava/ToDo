@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Button } from '../Button';
 
-import styles from './AddInput.css';
+import { AddInputStyled } from './styled';
 
 // type - add, remove, edit, done
 export const AddInput: React.FC<{
@@ -11,7 +11,7 @@ export const AddInput: React.FC<{
   const [value, setValue] = useState<string>('');
 
   return (
-    <div className={styles.AddInput}>
+    <AddInputStyled>
       <input type="text" onChange={e => setValue(e.target.value)} />
       <Button
         title="Добавить"
@@ -19,6 +19,6 @@ export const AddInput: React.FC<{
         onClick={() => onAdd(value)}
         isDisabled={!value}
       />
-    </div>
+    </AddInputStyled>
   );
 };

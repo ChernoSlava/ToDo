@@ -8,7 +8,7 @@ import {
   RevertIcon,
 } from './images';
 import { ButtonType } from './types';
-import styles from './Button.css';
+import { ButtonStyled } from './styled';
 
 // type - add, remove, edit, done, revert
 const images: {
@@ -30,17 +30,15 @@ export const Button: React.FC<{
   const Icon = images[type] || AddIcon;
 
   return (
-    <div
+    <ButtonStyled
       title={title}
       onClick={onClick}
       onKeyPress={onClick}
       role="button"
       aria-hidden
-      className={`
-        ${styles.Button} 
-        ${isDisabled ? styles.Button_disabled : ''}`}>
+      isDisabled={!!isDisabled}>
       <Icon />
-    </div>
+    </ButtonStyled>
   );
 };
 

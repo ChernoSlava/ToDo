@@ -5,8 +5,9 @@ import {
   finish,
   remove,
   revert,
-  edit,
+  setCurrent,
   getToDoListContainerProps,
+  openPopup,
 } from '@store';
 
 export const ToDoListContainer = () => {
@@ -19,10 +20,14 @@ export const ToDoListContainer = () => {
       onRemove={id => dispatch(remove(id))}
       onRevert={id => dispatch(revert(id))}
       onEdit={(id, title) => {
-        const text = prompt('Введите новое название', title);
-        if (text) {
-          dispatch(edit({ id, title: text }));
-        }
+        dispatch(
+          setCurrent({
+            id,
+            title,
+            isFinish: false,
+          }),
+        );
+        dispatch(openPopup('edit'));
       }}
     />
   );

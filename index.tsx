@@ -1,7 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-
-import './src/styles/global.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { App } from './src/App';
 

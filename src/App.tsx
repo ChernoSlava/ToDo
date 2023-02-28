@@ -2,20 +2,22 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { AddInputContainer, ToDoListContainer } from '@containers';
 import { ThemeProvider } from 'styled-components';
-import styles from './App.css';
+import { theme } from './theme';
+import { AppStyled } from './styled';
 import { store } from './store';
 import { GlobalStyles } from './styles/GlobalStyles';
-import { theme } from './theme';
+import { EditPopupContainer } from './containers/EditPopupContainer';
 
 export const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <div className={styles.App}>
+        <AppStyled>
           <AddInputContainer />
           <ToDoListContainer />
-        </div>
+          <EditPopupContainer />
+        </AppStyled>
       </ThemeProvider>
     </Provider>
   );

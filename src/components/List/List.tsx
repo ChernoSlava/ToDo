@@ -1,8 +1,7 @@
 import React from 'react';
 import { ToDoListType } from '@types';
 import { Button } from '../Button';
-import styles from './List.css';
-
+import { ListStyled, ListContainer, ListItemFinish } from './styled';
 // items = { id, title, isFinish }
 export const List: React.FC<{
   items: ToDoListType;
@@ -12,12 +11,10 @@ export const List: React.FC<{
   onEdit: (id: string, title: string) => void;
 }> = ({ items, onRemove, onEdit, onFinish, onRevert }) => {
   return (
-    <div className={styles.List}>
+    <ListStyled>
       {items?.map(x => (
-        <div key={x.id} className={styles.list__container}>
-          <div className={`${x.isFinish ? styles.ListItem_finish : ''}`}>
-            {x.title}
-          </div>
+        <ListContainer key={x.id}>
+          <ListItemFinish isFinish={x.isFinish}>{x.title}</ListItemFinish>
           <div>
             {!x.isFinish && (
               <Button
@@ -46,8 +43,8 @@ export const List: React.FC<{
               onClick={() => onRemove(x.id)}
             />
           </div>
-        </div>
+        </ListContainer>
       ))}
-    </div>
+    </ListStyled>
   );
 };
