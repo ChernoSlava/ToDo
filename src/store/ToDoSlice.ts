@@ -1,9 +1,16 @@
 /* eslint-disable no-param-reassign */
-import { ToDoStateType, EditAction, AddAction, IdAction } from '@types';
-import { createSlice } from '@reduxjs/toolkit';
+import {
+  ToDoStateType,
+  EditAction,
+  AddAction,
+  IdAction,
+  ToDoItemType,
+} from '@types';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export const InitialToDo: ToDoStateType = {
   items: [],
+  current: null,
 };
 
 export const ToDoSlice = createSlice({
@@ -15,6 +22,9 @@ export const ToDoSlice = createSlice({
         ...x,
         title: x.id === action.payload.id ? action.payload.title : x.title,
       }));
+    },
+    setCurrent: (state: ToDoStateType, action: PayloadAction<ToDoItemType>) => {
+      state.current = action.payload;
     },
     remove: (state: ToDoStateType, action: IdAction) => {
       state.items = state.items.filter(x => x.id !== action.payload);
@@ -38,7 +48,8 @@ export const ToDoSlice = createSlice({
   },
 });
 
-export const { edit, remove, finish, revert, add } = ToDoSlice.actions;
+export const { edit, remove, finish, revert, add, setCurrent } =
+  ToDoSlice.actions;
 
 const { reducer: ToDoSliceReducer } = ToDoSlice;
 export { ToDoSliceReducer };

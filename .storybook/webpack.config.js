@@ -1,25 +1,12 @@
+const path = require('path');
+
 module.exports = ({ config }) => {
-    const cssLoaderRule = config.module.rules.find(rule => rule.test.test('.css'));
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    '@theme': [path.resolve(__dirname, '../src/theme')],
+  }
 
-    cssLoaderRule.exclude = /\.css$/;
-
-    config.module.rules.push({
-        test: /\.css$/,
-        use: [
-            "style-loader",
-            {
-              loader: 'css-loader',
-              options: {
-                modules: {
-                  localIdentName: '[name][local][hash:base64:5]',
-                },
-              },
-            }
-          ],
-    });
-    
-    return {
-        ...config,
-    };
+  return {
+    ...config,
+  };
 };
-
