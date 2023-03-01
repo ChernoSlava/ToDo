@@ -1,24 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Button } from '../Button';
 
-import { AddInputStyled } from './styled';
+import { AddInputStyled, AddInputTitle } from './styled';
 
 // type - add, remove, edit, done
 export const AddInput: React.FC<{
-  onAdd: (value: string) => void;
+  onAdd: () => void;
 }> = ({ onAdd }): JSX.Element => {
-  const [value, setValue] = useState<string>('');
-
   return (
     <AddInputStyled>
-      <input type="text" onChange={e => setValue(e.target.value)} />
-      <Button
-        title="Добавить"
-        type="add"
-        onClick={() => onAdd(value)}
-        isDisabled={!value}
-      />
+      <AddInputTitle>Нажми на плюс</AddInputTitle>
+      <Button title="Добавить" type="add" onClick={() => onAdd()} />
     </AddInputStyled>
   );
 };

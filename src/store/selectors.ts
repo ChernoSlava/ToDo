@@ -35,3 +35,12 @@ export const getEditPopupContainerProps = createSelector(
     };
   },
 );
+
+export const getAddPopupContainerProps = createSelector(
+  [getOpenedPopups],
+  opened => {
+    return {
+      isShow: opened.includes('add'),
+    };
+  },
+);
