@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { List } from '@components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -8,27 +8,61 @@ import {
   setCurrent,
   getToDoListContainerProps,
   openPopup,
+  add,
+  load,
 } from '@store';
+import { ToDoItemType } from '@types';
 
 export const ToDoListContainer = () => {
   const { items } = useSelector(getToDoListContainerProps);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetch('/api/v1/todo')
+      .then((res) => res.json())
+      .then(json => {
+        dispatch(load(json.list as Array<ToDoItemType>))
+      })
+  }, [dispatch]);
   return (
     <List
       items={items}
-      onFinish={id => dispatch(finish(id))}
-      onRemove={id => dispatch(remove(id))}
-      onRevert={id => dispatch(revert(id))}
-      onEdit={(id, title) => {
-        dispatch(
-          setCurrent({
-            id,
-            title,
-            isFinish: false,
-          }),
-        );
-        dispatch(openPopup('edit'));
-      }}
-    />
+      onFinish={id => fetch('/api/v1/todo/finish', {
+        method: 'PATCH',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          id
+        })
+      }).then(() => {
+        dispatch(finish(id))
+      })}
+onRemove = {
+  id =>
+  fetch('/api/v1/todo', {
+    method: 'DELETE',
+    headers: {
+      "Content-Type": "application/json"
+          },
+    body: JSON.stringify({
+      id
+    })
+}).then(() => {
+  dispatch(remove(id))
+})
+      }
+onRevert = { id => dispatch(revert(id))}
+onEdit = {(id, title) => {
+  dispatch(
+    setCurrent({
+      id,
+      title,
+      isFinish: false,
+    }),
+  );
+  dispatch(openPopup('edit'));
+}}
+/>
   );
 };
