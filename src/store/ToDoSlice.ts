@@ -45,10 +45,13 @@ export const ToDoSlice = createSlice({
     add: (state: ToDoStateType, action: AddAction) => {
       state.items.push(action.payload);
     },
+    load: (state: ToDoStateType, action: PayloadAction<Array<ToDoItemType>>) => {
+      state.items= action.payload;
+    },
   },
 });
 
-export const { edit, remove, finish, revert, add, setCurrent } =
+export const { edit, remove, finish, revert, add, load, setCurrent } =
   ToDoSlice.actions;
 
 const { reducer: ToDoSliceReducer } = ToDoSlice;
