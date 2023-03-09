@@ -65,6 +65,21 @@ module.exports = {
     compress: true,
     hot: true,
     open: true,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+      'Access-Control-Allow-Headers':
+        'X-Requested-With, content-type, Authorization',
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        headers: {
+          Host: 'localhost',
+        },
+        secure: false,
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
