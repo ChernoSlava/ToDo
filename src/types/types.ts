@@ -1,3 +1,4 @@
+import { LoadingState } from '@constants';
 import React from 'react';
 // Описываем один элемент в todo
 export type ToDoItemType = {
@@ -12,7 +13,13 @@ export type ToDoListType = Array<ToDoItemType>;
 // Тип для глобального стора приложения (использую в reducer, InitialTodoList)
 export type ToDoStateType = {
   items: ToDoListType;
+  loading: LoadingState;
 };
+
+export type PopupsStateType = {
+  opened: Array<string>;
+};
+
 // Описываем действия нашего приложения при вызове dispatch и при описании reducer
 export enum ActionType {
   edit = 'EDIT',

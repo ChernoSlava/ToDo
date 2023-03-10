@@ -6,6 +6,11 @@ export {
   remove,
   finish,
   revert,
-  add,
+  setLoadingState,
+  loadTodoList,
+  addTodoItem,
 } from './ToDoSlice';
-export { getToDoListContainerProps } from './selectors';
+export {
+  getToDoListContainerProps,
+  getLoaderContainerProps,
+} from './selectors';
