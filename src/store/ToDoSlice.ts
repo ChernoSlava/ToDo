@@ -6,7 +6,7 @@ import {
   IdAction,
   ToDoItemType,
 } from '@types';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LoadingState } from '@constants';
 
 export const InitialToDo: ToDoStateType = {
@@ -14,6 +14,21 @@ export const InitialToDo: ToDoStateType = {
   current: null,
   loading: LoadingState.Idle,
 };
+
+export const loadToDoList = createAsyncThunk(
+  '@todo/list/load',
+  async () => {
+    const response = await fetch('/api/v1/todo');
+
+    if (response.ok) {
+      const result = await response.json();
+
+      return result.list;
+    }
+
+    throw new Error('Error get todo list.')
+  }
+)
 
 export const ToDoSlice = createSlice({
   name: 'ToDo_List',
@@ -56,6 +71,19 @@ export const ToDoSlice = createSlice({
       state.items = action.payload;
     },
   },
+
+  extraReducers: builder => {
+    builder.addCase(loadToDoList.pending, state => {
+      state.loading = LoadingState.Pending;
+    });
+    builder.addCase(loadToDoList.fulfilled, (state, action) => {
+      state.loading = LoadingState.Success;
+      state.items = action.payload
+    });
+    builder.addCase(loadToDoList.rejected, state => {
+      state.loading = LoadingState.Fail;
+    });
+  }
 });
 
 export const { edit, remove, finish, revert, add, load, setLoadingState, setCurrent } =

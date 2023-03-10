@@ -8,25 +8,17 @@ import {
   setCurrent,
   getToDoListContainerProps,
   openPopup,
-  load,
-  setLoadingState,
+  loadToDoList,
+  AppDispatch
 } from '@store';
-import { ToDoItemType } from '@types';
-import { LoadingState } from '@constants';
 
 export const ToDoListContainer = () => {
   const { items } = useSelector(getToDoListContainerProps);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(setLoadingState(LoadingState.Pending));
+    dispatch(loadToDoList());
     
-    fetch('/api/v1/todo')
-      .then((res) => res.json())
-      .then(json => {
-        dispatch(load(json.list as Array<ToDoItemType>))
-        dispatch(setLoadingState(LoadingState.Success))
-      })
   }, [dispatch]);
   return (
     <List

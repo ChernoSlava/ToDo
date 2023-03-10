@@ -1,4 +1,4 @@
-export { store, RootState } from './store';
+export { store, RootState, AppDispatch } from './store';
 export {
   ToDoSliceReducer,
   InitialToDo,
@@ -10,6 +10,7 @@ export {
   setCurrent,
   load,
   setLoadingState,
+  loadToDoList,
 } from './ToDoSlice';
 export { openPopup, closePopup } from './PopupSlice';
 export { getToDoListContainerProps, getLoaderContainerProps } from './selectors';
