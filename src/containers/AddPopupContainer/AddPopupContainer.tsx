@@ -1,11 +1,14 @@
-import { closePopup, setCurrent, add, setLoadingState, addToDoItem, AppDispatch } from '@store';
+import { 
+  closePopup, 
+  setCurrent, 
+  addToDoItem, 
+  AppDispatch 
+} from '@store';
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { AddPopup } from '../../components/AddPopup';
 import { getAddPopupContainerProps } from '../../store/selectors';
-import { ToDoItemType } from '@types';
-import { LoadingState } from '@constants';
 
 export const AddPopupContainer: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();

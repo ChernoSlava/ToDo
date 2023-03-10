@@ -10,10 +10,6 @@ export const AddInputContainer = () => {
       onAdd={() => {
         dispatch(openPopup('add'));
       }}
-      // onAdd={value => {
-      //   dispatch(openPopup('add'));
-      //   dispatch(add({ title: value, isFinish: false, id: getUniqueId() }));
-      // }}
     />
   );
 };

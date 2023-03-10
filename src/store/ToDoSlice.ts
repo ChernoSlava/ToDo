@@ -46,10 +46,10 @@ export const addToDoItem = createAsyncThunk(
     if (response.ok) {
       const result = await response.json();
 
-      return { 
-        title, 
-        isFinish: false, 
-        id: (result as ToDoItemType).id 
+      return {
+        title,
+        isFinish: false,
+        id: (result as ToDoItemType).id
       };
     }
 
@@ -91,13 +91,6 @@ export const ToDoSlice = createSlice({
         isFinish: x.id === action.payload ? false : x.isFinish,
       }));
     },
-
-    add: (state: ToDoStateType, action: AddAction) => {
-      state.items.push(action.payload);
-    },
-    load: (state: ToDoStateType, action: PayloadAction<Array<ToDoItemType>>) => {
-      state.items = action.payload;
-    },
   },
 
   extraReducers: builder => {
@@ -125,8 +118,14 @@ export const ToDoSlice = createSlice({
   }
 });
 
-export const { edit, remove, finish, revert, add, load, setLoadingState, setCurrent } =
-  ToDoSlice.actions;
+export const {
+  edit,
+  remove,
+  finish,
+  revert,
+  setLoadingState,
+  setCurrent
+} = ToDoSlice.actions;
 
 const { reducer: ToDoSliceReducer } = ToDoSlice;
 export { ToDoSliceReducer };
