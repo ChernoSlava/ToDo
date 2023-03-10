@@ -18,7 +18,7 @@ export const ToDoListContainer = () => {
 
   useEffect(() => {
     dispatch(loadToDoList());
-    
+
   }, [dispatch]);
   return (
     <List
@@ -35,7 +35,7 @@ export const ToDoListContainer = () => {
       }).then(() => {
         dispatch(finish(id))
       })}
-      
+
       onRemove={
         id =>
           fetch('/api/v1/todo', {
@@ -51,7 +51,20 @@ export const ToDoListContainer = () => {
           })
       }
 
-      onRevert={id => dispatch(revert(id))}
+      onRevert={id =>
+        fetch('/api/v1/todo/revert', {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id
+          })
+        })
+          .then(() => {
+            dispatch(revert(id))
+          })
+      }
 
       onEdit={(id, title) => {
         dispatch(
