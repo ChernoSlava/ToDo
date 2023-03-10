@@ -8,7 +8,7 @@ import { store } from './store';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { EditPopupContainer } from './containers/EditPopupContainer';
 import { AddPopupContainer } from './containers/AddPopupContainer';
-
+import { LoaderContainer } from './containers/LoaderContainer';
 export const App = () => {
   return (
     <Provider store={store}>
@@ -19,6 +19,7 @@ export const App = () => {
           <ToDoListContainer />
           <EditPopupContainer />
           <AddPopupContainer />
+          <LoaderContainer />
         </AppStyled>
       </ThemeProvider>
     </Provider>

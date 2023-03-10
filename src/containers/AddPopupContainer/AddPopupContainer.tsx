@@ -1,11 +1,11 @@
-import { closePopup, setCurrent, add } from '@store';
+import { closePopup, setCurrent, add, setLoadingState } from '@store';
 import React from 'react';
-import { getUniqueId } from '@utils';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { AddPopup } from '../../components/AddPopup';
 import { getAddPopupContainerProps } from '../../store/selectors';
 import { ToDoItemType } from '@types';
+import { LoadingState } from '@constants';
 
 export const AddPopupContainer: React.FC = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,7 @@ export const AddPopupContainer: React.FC = () => {
           if (!text) {
             return
           }
+          dispatch(setLoadingState(LoadingState.Pending));
           fetch('/api/v1/todo', {
             method: 'POST',
             headers: {
@@ -31,8 +32,9 @@ export const AddPopupContainer: React.FC = () => {
               dispatch(add({ title: text, isFinish: false, id: (json as ToDoItemType).id }));
               dispatch(closePopup('add'));
               dispatch(setCurrent(null));
-          })
-          
+              dispatch(setLoadingState(LoadingState.Success));
+            })
+
         }}
         onCancel={() => {
           dispatch(closePopup('add'));

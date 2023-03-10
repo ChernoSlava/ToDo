@@ -9,6 +9,7 @@ export {
   add,
   setCurrent,
   load,
+  setLoadingState,
 } from './ToDoSlice';
 export { openPopup, closePopup } from './PopupSlice';
-export { getToDoListContainerProps } from './selectors';
+export { getToDoListContainerProps, getLoaderContainerProps } from './selectors';

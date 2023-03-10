@@ -7,16 +7,23 @@ import {
   ToDoItemType,
 } from '@types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { LoadingState } from '@constants';
 
 export const InitialToDo: ToDoStateType = {
   items: [],
   current: null,
+  loading: LoadingState.Idle,
 };
 
 export const ToDoSlice = createSlice({
   name: 'ToDo_List',
   initialState: InitialToDo,
   reducers: {
+
+    setLoadingState: (state: ToDoStateType, action: PayloadAction<LoadingState>) => {
+      state.loading = action.payload;
+    },
+
     edit: (state: ToDoStateType, action: EditAction) => {
       state.items = state.items.map(x => ({
         ...x,
@@ -46,12 +53,12 @@ export const ToDoSlice = createSlice({
       state.items.push(action.payload);
     },
     load: (state: ToDoStateType, action: PayloadAction<Array<ToDoItemType>>) => {
-      state.items= action.payload;
+      state.items = action.payload;
     },
   },
 });
 
-export const { edit, remove, finish, revert, add, load, setCurrent } =
+export const { edit, remove, finish, revert, add, load, setLoadingState, setCurrent } =
   ToDoSlice.actions;
 
 const { reducer: ToDoSliceReducer } = ToDoSlice;
