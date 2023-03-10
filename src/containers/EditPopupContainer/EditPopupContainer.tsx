@@ -13,7 +13,23 @@ export const EditPopupContainer: React.FC = () => {
         value={current.title}
         onApply={text => {
           if (text) {
-            dispatch(edit({ id: current.id, title: text }));
+            fetch('/api/v1/todo/edit', {
+              method: 'PATCH',
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                id: current.id,
+                title: text
+              })
+            })
+              .then(() => {
+                dispatch(edit({
+                  id: current.id,
+                  title: text
+                }));
+              })
+
           }
           dispatch(closePopup('edit'));
           dispatch(setCurrent(null));
