@@ -28,7 +28,35 @@ export const loadToDoList = createAsyncThunk(
 
     throw new Error('Error get todo list.')
   }
+);
+
+export const addToDoItem = createAsyncThunk(
+  '@todo/add',
+  async (title: string) => {
+    const response = await fetch('/api/v1/todo', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        title,
+      })
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+
+      return { 
+        title, 
+        isFinish: false, 
+        id: (result as ToDoItemType).id 
+      };
+    }
+
+    throw new Error('Error get todo list.')
+  }
 )
+
 
 export const ToDoSlice = createSlice({
   name: 'ToDo_List',
@@ -81,6 +109,17 @@ export const ToDoSlice = createSlice({
       state.items = action.payload
     });
     builder.addCase(loadToDoList.rejected, state => {
+      state.loading = LoadingState.Fail;
+    });
+
+    builder.addCase(addToDoItem.pending, state => {
+      state.loading = LoadingState.Pending;
+    });
+    builder.addCase(addToDoItem.fulfilled, (state, action) => {
+      state.loading = LoadingState.Success;
+      state.items.push(action.payload);
+    });
+    builder.addCase(addToDoItem.rejected, state => {
       state.loading = LoadingState.Fail;
     });
   }

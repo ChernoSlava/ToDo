@@ -11,6 +11,7 @@ export {
   load,
   setLoadingState,
   loadToDoList,
+  addToDoItem,
 } from './ToDoSlice';
 export { openPopup, closePopup } from './PopupSlice';
 export { getToDoListContainerProps, getLoaderContainerProps } from './selectors';
