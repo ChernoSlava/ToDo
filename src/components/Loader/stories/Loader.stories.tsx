@@ -9,7 +9,7 @@ export default {
   argTypes: { onAdd: { action: 'clicked' } },
 } as ComponentMeta<typeof Loader>;
 
-const Template: ComponentStory<typeof Loader> = args => <Loader {...args} /> ;
+const Template: ComponentStory<typeof Loader> = args => <Loader /> ;
 
 export const Playground = Template.bind({});
 

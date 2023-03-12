@@ -6,4 +6,6 @@ export const AddInputStyled = styled.div`
   align-items: center;
 `;
 
-export const AddInputTitle = styled.p``;
+export const AddInputTitle = styled.p`
+  padding-bottom: 5px;
+`;

@@ -9,6 +9,7 @@ import { GlobalStyles } from './styles/GlobalStyles';
 import { EditPopupContainer } from './containers/EditPopupContainer';
 import { AddPopupContainer } from './containers/AddPopupContainer';
 import { LoaderContainer } from './containers/LoaderContainer';
+
 export const App = () => {
   return (
     <Provider store={store}>
