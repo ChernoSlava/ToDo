@@ -45,3 +45,5 @@ export const Button: React.FC<{
 Button.defaultProps = {
   isDisabled: undefined,
 };
+
+export { ButtonType };

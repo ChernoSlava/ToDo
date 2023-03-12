@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { List } from '@components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  finish,
-  remove,
-  revert,
   setCurrent,
   getToDoListContainerProps,
   openPopup,
   loadToDoList,
-  AppDispatch
+  AppDispatch,
+  finishToDoList,
+  removeToDoList,
+  revertToDoList
 } from '@store';
 
 export const ToDoListContainer = () => {
@@ -24,46 +24,17 @@ export const ToDoListContainer = () => {
     <List
       items={items}
 
-      onFinish={id => fetch('/api/v1/todo/finish', {
-        method: 'PATCH',
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          id
-        })
-      }).then(() => {
-        dispatch(finish(id))
-      })}
+      onFinish={id =>
+        dispatch(finishToDoList(id))
+      }
 
       onRemove={
         id =>
-          fetch('/api/v1/todo', {
-            method: 'DELETE',
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              id
-            })
-          }).then(() => {
-            dispatch(remove(id))
-          })
+          dispatch(removeToDoList(id))
       }
 
       onRevert={id =>
-        fetch('/api/v1/todo/revert', {
-          method: 'PATCH',
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            id
-          })
-        })
-          .then(() => {
-            dispatch(revert(id))
-          })
+        dispatch(revertToDoList(id))
       }
 
       onEdit={(id, title) => {

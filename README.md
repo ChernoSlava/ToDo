@@ -14,11 +14,14 @@
 ### ToDo list
 
 - React js,
-- React Context,
+- Redux toolkit,
 - useReducer,
 - Webpack,
 - StoryBook 6.3,
-- TypeScript;
+- TypeScript,
+- StyledComponents,
+- ESLint,
+- Prettier;
 
 ---
 ## Установка и запуск
