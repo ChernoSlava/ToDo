@@ -1,12 +1,10 @@
 /* eslint-disable no-param-reassign */
 import {
-  ToDoStateType,
-  IdAction,
-  ToDoItemType,
+  ToDoStateType,  ToDoItemType,
 } from '@types';
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LoadingState } from '@constants';
-import { closePopup } from '@store';
+import { closePopup } from './PopupSlice';
 
 export const InitialToDo: ToDoStateType = {
   items: [],

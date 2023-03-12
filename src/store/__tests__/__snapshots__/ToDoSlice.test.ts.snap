@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToDoSlice test addToDoList tests should fail 1`] = `
+{
+  "actions": [
+    {
+      "meta": {
+        "arg": "item 1",
+        "requestId": Any<String>,
+        "requestStatus": "pending",
+      },
+      "payload": undefined,
+      "type": "@todo/add/pending",
+    },
+    {
+      "error": {
+        "message": "Error get todo list.",
+        "name": "Error",
+        "stack": Any<String>,
+      },
+      "meta": {
+        "aborted": false,
+        "arg": "item 1",
+        "condition": false,
+        "rejectedWithValue": false,
+        "requestId": Any<String>,
+        "requestStatus": "rejected",
+      },
+      "payload": undefined,
+      "type": "@todo/add/rejected",
+    },
+  ],
+}
+`;
+
+exports[`ToDoSlice test addToDoList tests should success 1`] = `
+{
+  "actions": [
+    {
+      "meta": {
+        "arg": "item 1",
+        "requestId": Any<String>,
+        "requestStatus": "pending",
+      },
+      "payload": undefined,
+      "type": "@todo/add/pending",
+    },
+    {
+      "meta": {
+        "arg": "item 1",
+        "requestId": Any<String>,
+        "requestStatus": "fulfilled",
+      },
+      "payload": {
+        "id": 100,
+        "isFinish": false,
+        "title": "item 1",
+      },
+      "type": "@todo/add/fulfilled",
+    },
+  ],
+}
+`;
+
+exports[`ToDoSlice test loadToDoList tests should fail 1`] = `
+{
+  "actions": [
+    {
+      "meta": {
+        "arg": undefined,
+        "requestId": Any<String>,
+        "requestStatus": "pending",
+      },
+      "payload": undefined,
+      "type": "@todo/list/load/pending",
+    },
+    {
+      "error": {
+        "message": "Error get todo list.",
+        "name": "Error",
+        "stack": Any<String>,
+      },
+      "meta": {
+        "aborted": false,
+        "arg": undefined,
+        "condition": false,
+        "rejectedWithValue": false,
+        "requestId": Any<String>,
+        "requestStatus": "rejected",
+      },
+      "payload": undefined,
+      "type": "@todo/list/load/rejected",
+    },
+  ],
+}
+`;
