@@ -1,5 +1,5 @@
 import { LoadingState } from "@constants";
-import { addToDoItem, InitialToDo, loadToDoList, ToDoSliceReducer } from "../ToDoSlice"
+import { addToDoItem, InitialToDo, loadToDoList, ToDoSliceReducer, editToDoItem } from "../ToDoSlice"
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock, { FetchMock } from 'jest-fetch-mock';
@@ -197,6 +197,66 @@ describe('ToDoSlice test', () => {
         }],
       });
     });
-  })
+  });
+
+  // describe('editToDoItem tests', () => {
+  //   it('should success', async () => {
+  //     const store = mockStore({ ...InitialToDo });
+
+  //     (fetch as FetchMock).mockResponse(JSON.stringify({
+  //       title: 'a',
+  //       id: 100,
+  //     }), {
+  //       status: 200,
+  //     });
+
+  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //     // @ts-ignore
+  //     await store.dispatch(await editToDoItem({ title: 'a', id: 100, }));
+
+  //     expect(fetch).toBeCalledTimes(1);
+  //     expect(fetch).toBeCalledWith('/api/v1/todo/edit',
+  //       {
+  //         "body": "{\"title\":\"a\",\"id\":100}",
+  //         "headers": { "Content-Type": "application/json" },
+  //         "method": 'PATCH'
+  //       });
+
+  //     const actions = store.getActions();
+
+  //     expect({ actions }).toMatchSnapshot({
+  //       actions: [
+  //         propertyMatcherItem, propertyMatcherItem]
+  //     });
+  //   });
+  //   it('should fail', async () => {
+  //     const store = mockStore({ ...InitialToDo });
+
+  //     (fetch as FetchMock).mockResponse(JSON.stringify({
+  //       id: 100
+  //     }), {
+  //       status: 500,
+  //     });
+
+  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //     // @ts-ignore
+  //     await store.dispatch(await editToDoItem('item 1'));
+
+  //     expect(fetch).toBeCalledTimes(1);
+  //     expect(fetch).toBeCalledWith('/api/v1/todo/edit',
+  //       {
+  //         "body": "{\"title\":\"item 1\"}",
+  //         "headers": { "Content-Type": "application/json" },
+  //         "method": 'PATCH'
+  //       });
+
+  //     const actions = store.getActions();
+
+  //     expect({ actions }).toMatchSnapshot({
+  //       actions: [
+  //         propertyMatcherItem, propertyErrorMatcherItem]
+  //     });
+  //   });
+  // });
 
 })
