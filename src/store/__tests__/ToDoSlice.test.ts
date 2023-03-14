@@ -199,64 +199,59 @@ describe('ToDoSlice test', () => {
     });
   });
 
-  // describe('editToDoItem tests', () => {
-  //   it('should success', async () => {
-  //     const store = mockStore({ ...InitialToDo });
+  describe('editToDoItem tests', () => {
+    it('should success', async () => {
+      const store = mockStore({ ...InitialToDo });
 
-  //     (fetch as FetchMock).mockResponse(JSON.stringify({
-  //       title: 'a',
-  //       id: 100,
-  //     }), {
-  //       status: 200,
-  //     });
+      (fetch as FetchMock).mockResponse(JSON.stringify({}), {
+        status: 200,
+      });
 
-  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //     // @ts-ignore
-  //     await store.dispatch(await editToDoItem({ title: 'a', id: 100, }));
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      await store.dispatch(await editToDoItem({ title: 'a', id: 100, }));
 
-  //     expect(fetch).toBeCalledTimes(1);
-  //     expect(fetch).toBeCalledWith('/api/v1/todo/edit',
-  //       {
-  //         "body": "{\"title\":\"a\",\"id\":100}",
-  //         "headers": { "Content-Type": "application/json" },
-  //         "method": 'PATCH'
-  //       });
+      expect(fetch).toBeCalledTimes(1);
+      expect(fetch).toBeCalledWith('/api/v1/todo/edit',
+        {
+          "body": "{\"title\":\"a\",\"id\":100}",
+          "headers": { "Content-Type": "application/json" },
+          "method": 'PATCH'
+        });
 
-  //     const actions = store.getActions();
+      const actions = store.getActions();
 
-  //     expect({ actions }).toMatchSnapshot({
-  //       actions: [
-  //         propertyMatcherItem, propertyMatcherItem]
-  //     });
-  //   });
-  //   it('should fail', async () => {
-  //     const store = mockStore({ ...InitialToDo });
+      expect({ actions }).toMatchSnapshot({
+        actions: [
+          propertyMatcherItem, {}, {}, propertyMatcherItem]
+      });
+    });
+    it('should fail', async () => {
+      const store = mockStore({ ...InitialToDo });
 
-  //     (fetch as FetchMock).mockResponse(JSON.stringify({
-  //       id: 100
-  //     }), {
-  //       status: 500,
-  //     });
+      (fetch as FetchMock).mockResponse(JSON.stringify({}), {
+        status: 500,
+      });
 
-  //     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //     // @ts-ignore
-  //     await store.dispatch(await editToDoItem('item 1'));
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      await store.dispatch(await editToDoItem({ title: 'a', id: 100, }));
 
-  //     expect(fetch).toBeCalledTimes(1);
-  //     expect(fetch).toBeCalledWith('/api/v1/todo/edit',
-  //       {
-  //         "body": "{\"title\":\"item 1\"}",
-  //         "headers": { "Content-Type": "application/json" },
-  //         "method": 'PATCH'
-  //       });
+      expect(fetch).toBeCalledTimes(1);
+      expect(fetch).toBeCalledWith('/api/v1/todo/edit',
+        {
+          "body": "{\"title\":\"a\",\"id\":100}",
+          "headers": { "Content-Type": "application/json" },
+          "method": 'PATCH'
+        });
 
-  //     const actions = store.getActions();
+      const actions = store.getActions();
 
-  //     expect({ actions }).toMatchSnapshot({
-  //       actions: [
-  //         propertyMatcherItem, propertyErrorMatcherItem]
-  //     });
-  //   });
-  // });
+      expect({ actions }).toMatchSnapshot({
+        actions: [
+          propertyMatcherItem, propertyErrorMatcherItem]
+      });
+    });
+  });
 
 })

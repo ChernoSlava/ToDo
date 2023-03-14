@@ -62,6 +62,87 @@ exports[`ToDoSlice test addToDoList tests should success 1`] = `
 }
 `;
 
+exports[`ToDoSlice test editToDoItem tests should fail 1`] = `
+{
+  "actions": [
+    {
+      "meta": {
+        "arg": {
+          "id": 100,
+          "title": "a",
+        },
+        "requestId": Any<String>,
+        "requestStatus": "pending",
+      },
+      "payload": undefined,
+      "type": "@todo/edit/pending",
+    },
+    {
+      "error": {
+        "message": "Error get todo list.",
+        "name": "Error",
+        "stack": Any<String>,
+      },
+      "meta": {
+        "aborted": false,
+        "arg": {
+          "id": 100,
+          "title": "a",
+        },
+        "condition": false,
+        "rejectedWithValue": false,
+        "requestId": Any<String>,
+        "requestStatus": "rejected",
+      },
+      "payload": undefined,
+      "type": "@todo/edit/rejected",
+    },
+  ],
+}
+`;
+
+exports[`ToDoSlice test editToDoItem tests should success 1`] = `
+{
+  "actions": [
+    {
+      "meta": {
+        "arg": {
+          "id": 100,
+          "title": "a",
+        },
+        "requestId": Any<String>,
+        "requestStatus": "pending",
+      },
+      "payload": undefined,
+      "type": "@todo/edit/pending",
+    },
+    {
+      "payload": "edit",
+      "type": "ToDo_List_Popup/closePopup",
+    },
+    {
+      "payload": null,
+      "type": "ToDo_List/setCurrent",
+    },
+    {
+      "meta": {
+        "arg": {
+          "id": 100,
+          "title": "a",
+        },
+        "requestId": Any<String>,
+        "requestStatus": "fulfilled",
+      },
+      "payload": {
+        "id": 100,
+        "title": "a",
+      },
+      "type": "@todo/edit/fulfilled",
+    },
+  ],
+}
+`;
+
 exports[`ToDoSlice test loadToDoList tests should fail 1`] = `
 {
   "actions": [
