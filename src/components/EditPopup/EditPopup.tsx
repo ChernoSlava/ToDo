@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Popup } from '../Popup';
-import { EditPupupInput, EditPupupButton } from './styled';
+import { EditPopupInput, EditPopupButton } from './styled';
 
 export const EditPopup: React.FC<{
   onApply: (value: string) => void;
@@ -12,18 +12,18 @@ export const EditPopup: React.FC<{
   return (
     <Popup
       content={
-        <EditPupupInput type="text" defaultValue={value} ref={inputRef} />
+        <EditPopupInput type="text" defaultValue={value} ref={inputRef} />
       }
       footer={
         <>
-          <EditPupupButton
+          <EditPopupButton
             type="button"
             onClick={() => onApply(inputRef.current.value)}>
             Okey
-          </EditPupupButton>
-          <EditPupupButton type="button" onClick={onCancel}>
+          </EditPopupButton>
+          <EditPopupButton type="button" onClick={onCancel}>
             Отмена
-          </EditPupupButton>
+          </EditPopupButton>
         </>
       }
     />

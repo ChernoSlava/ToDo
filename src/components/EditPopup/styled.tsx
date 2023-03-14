@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const EditPupupInput = styled.input`
+export const EditPopupInput = styled.input`
   background-color: transparent;
 `;
-export const EditPupupButton = styled.button`
+export const EditPopupButton = styled.button`
   width: 100px;
   background: transparent;
   border: none;

@@ -3,8 +3,8 @@ import { LoadingState } from '@constants';
 // Описываем один элемент в todo
 export type ToDoItemType = {
   id: string;
-  title: string;
-  isFinish: boolean;
+  title?: string;
+  isFinish?: boolean;
 };
 
 // Описываем список элементов и используем в компоненте (list)

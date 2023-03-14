@@ -50,6 +50,16 @@ export const getAddPopupContainerProps = createSelector(
   },
 );
 
+export const getDeletePopupContainerProps = createSelector(
+  [getOpenedPopups, getCurrent],
+  (opened, current) => {
+    return {
+      isShow: opened.includes('remove'),
+      current,
+    };
+  },
+);
+
 export const getLoaderContainerProps = createSelector(
   [getToDoLoadingState],
   loading => {

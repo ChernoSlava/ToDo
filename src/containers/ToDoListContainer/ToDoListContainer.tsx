@@ -8,7 +8,6 @@ import {
   loadToDoList,
   AppDispatch,
   finishToDoList,
-  removeToDoList,
   revertToDoList
 } from '@store';
 
@@ -29,12 +28,18 @@ export const ToDoListContainer = () => {
       }
 
       onRemove={
-        id =>
-          dispatch(removeToDoList(id))
-      }
+        (id) => {
+          dispatch(
+            setCurrent({
+              id
+            }),
+          );
+          dispatch(openPopup('remove'))
+        }}
 
-      onRevert={id =>
-        dispatch(revertToDoList(id))
+      onRevert={
+        id =>
+          dispatch(revertToDoList(id))
       }
 
       onEdit={(id, title) => {
