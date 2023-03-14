@@ -3,7 +3,7 @@ import { Portal } from '../Portal';
 import { PopupStyled, PopupOverlay, PopupContent, PopupFooter } from './styled';
 
 export const Popup: React.FC<{
-  content: ReactNode;
+  content?: ReactNode;
   footer: ReactNode;
 }> = ({ content, footer }) => {
   return (

@@ -1,9 +1,10 @@
 import React from 'react';
+import { LoadingState } from '@constants';
 // Описываем один элемент в todo
 export type ToDoItemType = {
   id: string;
-  title: string;
-  isFinish: boolean;
+  title?: string;
+  isFinish?: boolean;
 };
 
 // Описываем список элементов и используем в компоненте (list)
@@ -13,6 +14,7 @@ export type ToDoListType = Array<ToDoItemType>;
 export type ToDoStateType = {
   items: ToDoListType;
   current: ToDoItemType;
+  loading: LoadingState;
 };
 // Описываем действия нашего приложения при вызове dispatch и при описании reducer
 export enum ActionType {

@@ -5,3 +5,7 @@ export const AddInputStyled = styled.div`
   flex-direction: row;
   align-items: center;
 `;
+
+export const AddInputTitle = styled.p`
+  padding-bottom: 5px;
+`;

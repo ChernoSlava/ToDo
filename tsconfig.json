@@ -18,6 +18,8 @@
         },
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
     },
     "include": [
         "./src/**/*.ts", 
