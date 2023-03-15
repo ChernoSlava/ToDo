@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portal tests should render by default 1`] = `
+<body>
+  test
+</body>
+`;
+
+exports[`Portal tests should render in Custom node 1`] = `
+<div>
+  test
+</div>
+`;
+
+exports[`Portal tests should render in Root 1`] = `
+<div
+  id="root"
+>
+  test
+</div>
+`;
