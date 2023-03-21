@@ -1,11 +1,5 @@
 /* eslint-disable no-param-reassign */
-import {
-  ToDoStateType,
-  EditAction,
-  AddAction,
-  IdAction,
-  ToDoItemType,
-} from '@types';
+import { ToDoStateType, EditAction, IdAction, ToDoItemType } from '@types';
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { LoadingState } from '@constants';
 

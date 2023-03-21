@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portal tests should render by body 1`] = `
+<body>
+  <div
+    id="customNode"
+  />
+  <div />
+  test
+</body>
+`;
+
+exports[`Portal tests should render in custom node 1`] = `
+<body>
+  <div
+    id="root"
+  />
+  <div
+    id="customNode"
+  >
+    test
+  </div>
+  <div />
+</body>
+`;
+
+exports[`Portal tests should render in root 1`] = `
+<body>
+  <div
+    id="root"
+  >
+    test
+  </div>
+  <div
+    id="customNode"
+  />
+  <div />
+</body>
+`;
